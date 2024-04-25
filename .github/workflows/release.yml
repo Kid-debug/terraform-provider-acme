@@ -63,6 +63,8 @@ jobs:
           git add .
           git commit -m "Automated submodule update"
           cd ../../
+          git config user.email "zhongliang_01@hotmail.com"
+          git config user.name "kid-debug"
           git add .
           git commit -m "Commit message for submodule changes"
       - name: Import GPG key
