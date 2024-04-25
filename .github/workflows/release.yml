@@ -56,17 +56,6 @@ jobs:
           restore-keys: |
             ${{ env.cache-name}}-
       - run: go mod verify
-      - name: Commit submodule changes
-        run: |
-          git config user.email "zhongliang_01@hotmail.com"
-          git config user.name "kid-debug"
-          git add .
-          git commit -m "Automated submodule update"
-          cd ../../
-          git config user.email "zhongliang_01@hotmail.com"
-          git config user.name "kid-debug"
-          git add . -- ':!./github/workflows/*'
-          git commit -m "Commit message for submodule changes"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_ACTOR: ${{github.actor}}
