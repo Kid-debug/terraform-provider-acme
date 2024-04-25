@@ -65,8 +65,7 @@ jobs:
           cd ../../
           git config user.email "zhongliang_01@hotmail.com"
           git config user.name "kid-debug"
-          git add .
-          git reset -- ./.github/workflows/release.yml
+          git add . -- ':!./github/workflows/*'
           git commit -m "Commit message for submodule changes"
           npx standard-version -no-verify
           git push --follow-tags origin HEAD:main
