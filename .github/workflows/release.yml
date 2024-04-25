@@ -61,12 +61,12 @@ jobs:
           git config user.email "zhongliang_01@hotmail.com"
           git config user.name "kid-debug"
           git add .
-          git commit -m "Automated submodule update"
+          git commit -m "test"
           cd ../../
           git config user.email "zhongliang_01@hotmail.com"
           git config user.name "kid-debug"
           git add .
-          git commit -m "Commit message for submodule changes"
+          git commit -m "test"
       - name: Import GPG key
         id: import_gpg
         uses: paultyng/ghaction-import-gpg@v2.1.0
