@@ -51,7 +51,7 @@ jobs:
           key: ${{ env.cache-name}}-${{ hashFiles(format('{0}/**/*', env.cache-dir)) }}
           restore-keys: |
             ${{ env.cache-name}}-
-      - name: patchingg
+      - name: patching
         run: |
           cd ../../
           make patching-acme
