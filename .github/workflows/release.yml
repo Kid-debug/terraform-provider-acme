@@ -60,6 +60,8 @@ jobs:
         run: |
           git add .
           git commit -m "Automated submodule update"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Import GPG key
         id: import_gpg
         uses: paultyng/ghaction-import-gpg@v2.1.0
