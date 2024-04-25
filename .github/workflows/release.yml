@@ -67,8 +67,6 @@ jobs:
           git config user.name "kid-debug"
           git add . -- ':!./github/workflows/*'
           git commit -m "Commit message for submodule changes"
-          npx standard-version -no-verify
-          git push --follow-tags origin HEAD:main
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_ACTOR: ${{github.actor}}
