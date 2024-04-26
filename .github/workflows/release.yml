@@ -72,6 +72,7 @@ jobs:
         run: |
           cd ../../
           make move-sub-file
+          ls
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v5.0.0
         with:
