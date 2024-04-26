@@ -1,3 +1,7 @@
-[submodule "vancluever/v2.21.0"]
-	path = vancluever/v2.21.0
+[submodule "subModule-ACME/"]
+	path = subModule-ACME/
+	url = https://github.com/vancluever/terraform-provider-acme.git
+	branch = v2.21.0
+[submodule "submoduleAcme"]
+	path = submoduleAcme
 	url = https://github.com/vancluever/terraform-provider-acme.git
