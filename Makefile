@@ -9,7 +9,7 @@ create-patch:
 patching-acme:
 	git submodule update --init --recursive
 	-patch -p0 < ./patch/subModule.patch
-	-patch -p0 ./vancluever/$(NEW_VERSION)/acme/errorlist.go < ./patch/acme.errorlist.go.patch
+	-patch -p0 acme/errorlist.go < ./patch/acme.errorlist.go.patch
 
 .PHONY: move-sub-dir-to-main
 move-sub-file:
