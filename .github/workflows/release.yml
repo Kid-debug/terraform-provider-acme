@@ -36,7 +36,6 @@ jobs:
           check-latest: true
       - name: patching
         run: |
-          cd ./vancluever/v2.21.0
           make patching-acme
       - name: Cache (Go Modules)
         uses: actions/cache@v3
