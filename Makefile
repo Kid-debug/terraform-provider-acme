@@ -19,7 +19,7 @@ move-sub-file:
 	rsync -av --progress ./subModuleACME/* . --exclude .git --exclude .gitignore --exclude README.md --exclude GNUmakefile --exclude .github/
 
 .PHONY: patch-file
-patching-acme:
+patching:
 	git submodule update --init --recursive
 	-patch -p0 < ./patch/subModule.patch
 	-patch -p0 ./acme/errorlist.go < ./patch/acme.errorlist.go.patch
