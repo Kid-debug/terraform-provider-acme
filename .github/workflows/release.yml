@@ -36,6 +36,7 @@ jobs:
           check-latest: true
       - name: mov-sub-to-main
         run: |
+          ls
           make move-sub-file
           ls
       - name: patching
