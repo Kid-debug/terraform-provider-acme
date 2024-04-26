@@ -25,9 +25,9 @@ permissions:
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./vancluever/v2.21.0
+    # defaults:
+    #   run:
+    #     working-directory: ./vancluever/v2.21.0
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v4
@@ -36,7 +36,7 @@ jobs:
           check-latest: true
       - name: patching
         run: |
-          cd ../../
+          cd ./vancluever/v2.21.0
           make patching-acme
       - name: Cache (Go Modules)
         uses: actions/cache@v3
@@ -70,7 +70,6 @@ jobs:
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
       - name: mov-sub-to-main
         run: |
-          cd ../../
           make move-sub-file
           ls
       - name: Run GoReleaser
@@ -78,7 +77,6 @@ jobs:
         with:
           version: latest
           args: release --clean --timeout 60m0s --skip=validate
-          workdir: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
