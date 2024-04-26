@@ -32,4 +32,3 @@ terraform-provider-acme
 .direnv/
 
 coverage.out
-vancluever/v2.21.0/*
