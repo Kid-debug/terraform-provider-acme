@@ -10,3 +10,7 @@ patching-acme:
 	git submodule update --init --recursive
 	-patch -p0 < ./patch/subModule.patch
 	-patch -p0 ./vancluever/$(NEW_VERSION)/acme/errorlist.go < ./patch/acme.errorlist.go.patch
+
+.PHONY: move-sub-dir-to-main
+move-sub-file:
+	rsync -av --progress ./vancluever/v2.21.0/* ./ --exclude .git --exclude .gitignore --exclude README.md --exclude GNUmakefile --exclude .github/
