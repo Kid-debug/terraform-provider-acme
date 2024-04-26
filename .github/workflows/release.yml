@@ -73,7 +73,7 @@ jobs:
         with:
           version: latest
           args: release --clean --timeout 60m0s --skip=validate
-          workdir: ./vancluever/v2.21.0
+          # workdir: ./vancluever/v2.21.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
