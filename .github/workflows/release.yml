@@ -16,10 +16,12 @@ on:
     #   - main
     tags:
       - "v*"
-# # Releases need permissions to read and write the repository contents.
-# # GitHub considers creating releases and uploading assets as writing contents.
-# permissions:
-#   contents: write
+
+# Releases need permissions to read and write the repository contents.
+# GitHub considers creating releases and uploading assets as writing contents.
+permissions:
+  contents: write
+
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
@@ -73,5 +75,5 @@ jobs:
           args: release --clean --timeout 60m0s --skip=validate
           workdir: ./vancluever/v2.21.0
         env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
