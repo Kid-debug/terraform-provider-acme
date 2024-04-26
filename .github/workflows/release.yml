@@ -78,7 +78,7 @@ jobs:
         with:
           version: latest
           args: release --clean --timeout 60m0s --skip=validate
-          workdir: ./
+          workdir: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
