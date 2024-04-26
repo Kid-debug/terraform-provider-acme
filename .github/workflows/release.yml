@@ -37,6 +37,12 @@ jobs:
       - name: move submodule file to main
         run: |
           make move-sub-to-main
+      - name: reinstall go
+        run: |
+          rm go.mod
+          rm go.sum
+          go mod init github.com/Kid-debug/terraform-provider-acme/v2
+          go mod tidy
       - name: Cache (Go Modules)
         uses: actions/cache@v3
         env:
