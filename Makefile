@@ -13,4 +13,4 @@ patching-acme:
 
 .PHONY: move-sub-dir-to-main
 move-sub-file:
-	rsync -av --progress ./vancluever/v2.21.0/* ./ --exclude .git --exclude .gitignore --exclude README.md --exclude GNUmakefile --exclude .github/
+	rsync -av --progress ./vancluever/v2.21.0/* ./temp --exclude .git --exclude .gitignore --exclude README.md --exclude GNUmakefile --exclude .github/
