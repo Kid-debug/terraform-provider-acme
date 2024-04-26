@@ -3,7 +3,7 @@ NEW_VERSION ?= v2.21.0
 
 .PHONY: git-submodule-create
 create-submodule: 
-	git submodule add --force https://github.com/vancluever/terraform-provider-acme.git ./vancluever/origin
+	git submodule add --force https://github.com/vancluever/terraform-provider-acme.git ./submoduleACME
 
 .PHONY: git-submodule-update
 update-submodule: 
