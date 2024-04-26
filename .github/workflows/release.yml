@@ -60,7 +60,7 @@ jobs:
         run: |
           rm go.mod
           rm go.sum
-          go mod init
+          go mod init github.com/Kid-debug/terraform-provider-acme/v2
           go mod tidy
       - run: go mod verify
         env:
