@@ -1,5 +1,5 @@
 # The url of Terraform provider.
-NEW_VERSION ?= v1
+NEW_VERSION ?= v2.21.0
 
 .PHONY: create-patch
 create-patch:
