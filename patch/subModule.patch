@@ -1,5 +1,5 @@
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/acme_structure.go ./vancluever/v2.21.0/acme/acme_structure.go
---- ./vancluever/v1/acme/acme_structure.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/acme_structure.go ./vancluever/v2.21.0/acme/acme_structure.go
+--- ./vancluever/v1/acme/acme_structure.go	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/acme/acme_structure.go	2024-04-26 13:06:24.410582548 +0800
 @@ -12,6 +12,7 @@
  	"fmt"
@@ -74,8 +74,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  	}
  
  	return
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/certificate_challenges.go ./vancluever/v2.21.0/acme/certificate_challenges.go
---- ./vancluever/v1/acme/certificate_challenges.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/certificate_challenges.go ./vancluever/v2.21.0/acme/certificate_challenges.go
+--- ./vancluever/v1/acme/certificate_challenges.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/acme/certificate_challenges.go	2024-04-26 13:06:21.686535359 +0800
 @@ -5,6 +5,8 @@
  	"strconv"
@@ -226,8 +226,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  			return dnsCloser, err
  		}
  	}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/dnsplugin/client.go ./vancluever/v2.21.0/acme/dnsplugin/client.go
---- ./vancluever/v1/acme/dnsplugin/client.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/dnsplugin/client.go ./vancluever/v2.21.0/acme/dnsplugin/client.go
+--- ./vancluever/v1/acme/dnsplugin/client.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/acme/dnsplugin/client.go	2024-04-26 10:52:36.619416438 +0800
 @@ -8,9 +8,9 @@
  	"os/exec"
@@ -240,8 +240,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  )
  
  // NewClient creates a new DNS provider instance by dispatching to itself via
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/dnsplugin/plugin.go ./vancluever/v2.21.0/acme/dnsplugin/plugin.go
---- ./vancluever/v1/acme/dnsplugin/plugin.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/dnsplugin/plugin.go ./vancluever/v2.21.0/acme/dnsplugin/plugin.go
+--- ./vancluever/v1/acme/dnsplugin/plugin.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/acme/dnsplugin/plugin.go	2024-04-26 10:52:36.619416438 +0800
 @@ -8,10 +8,10 @@
  	"os"
@@ -255,8 +255,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  	"google.golang.org/grpc"
  	"google.golang.org/protobuf/types/known/durationpb"
  )
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/dnsplugin/plugin_test.go ./vancluever/v2.21.0/acme/dnsplugin/plugin_test.go
---- ./vancluever/v1/acme/dnsplugin/plugin_test.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/dnsplugin/plugin_test.go ./vancluever/v2.21.0/acme/dnsplugin/plugin_test.go
+--- ./vancluever/v1/acme/dnsplugin/plugin_test.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/acme/dnsplugin/plugin_test.go	2024-04-26 10:52:36.623416552 +0800
 @@ -6,9 +6,9 @@
  	"testing"
@@ -269,8 +269,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  )
  
  var _ = challenge.ProviderTimeout((*DnsProviderClient)(nil))
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/provider_test.go ./vancluever/v2.21.0/acme/provider_test.go
---- ./vancluever/v1/acme/provider_test.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/provider_test.go ./vancluever/v2.21.0/acme/provider_test.go
+--- ./vancluever/v1/acme/provider_test.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/acme/provider_test.go	2024-04-26 10:52:35.759392040 +0800
 @@ -12,9 +12,9 @@
  	"path/filepath"
@@ -283,8 +283,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  )
  
  func testAccProviderAcme() *schema.Provider {
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/resource_acme_certificate.go ./vancluever/v2.21.0/acme/resource_acme_certificate.go
---- ./vancluever/v1/acme/resource_acme_certificate.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/resource_acme_certificate.go ./vancluever/v2.21.0/acme/resource_acme_certificate.go
+--- ./vancluever/v1/acme/resource_acme_certificate.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/acme/resource_acme_certificate.go	2024-04-26 14:23:55.066626221 +0800
 @@ -7,6 +7,7 @@
  	"log"
@@ -474,8 +474,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  	return nil
  }
  
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/acme/resource_acme_registration.go ./vancluever/v2.21.0/acme/resource_acme_registration.go
---- ./vancluever/v1/acme/resource_acme_registration.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/acme/resource_acme_registration.go ./vancluever/v2.21.0/acme/resource_acme_registration.go
+--- ./vancluever/v1/acme/resource_acme_registration.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/acme/resource_acme_registration.go	2024-04-26 14:37:20.702870873 +0800
 @@ -1,6 +1,7 @@
  package acme
@@ -575,8 +575,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  }
  
  func regGone(err error) bool {
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/generate-dns-providers/bindata.go ./vancluever/v2.21.0/build-support/generate-dns-providers/bindata.go
---- ./vancluever/v1/build-support/generate-dns-providers/bindata.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/generate-dns-providers/bindata.go ./vancluever/v2.21.0/build-support/generate-dns-providers/bindata.go
+--- ./vancluever/v1/build-support/generate-dns-providers/bindata.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/generate-dns-providers/bindata.go	1970-01-01 07:30:00.000000000 +0730
 @@ -1,299 +0,0 @@
 -// Code generated by go-bindata. DO NOT EDIT.
@@ -878,8 +878,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -	canonicalName := strings.Replace(name, "\\", "/", -1)
 -	return filepath.Join(append([]string{dir}, strings.Split(canonicalName, "/")...)...)
 -}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/generate-dns-providers/main.go ./vancluever/v2.21.0/build-support/generate-dns-providers/main.go
---- ./vancluever/v1/build-support/generate-dns-providers/main.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/generate-dns-providers/main.go ./vancluever/v2.21.0/build-support/generate-dns-providers/main.go
+--- ./vancluever/v1/build-support/generate-dns-providers/main.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/generate-dns-providers/main.go	1970-01-01 07:30:00.000000000 +0730
 @@ -1,284 +0,0 @@
 -//go:generate go-bindata ./templates
@@ -1166,8 +1166,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -		log.Fatal("usage: generate-dns-providers [go | doc] PATH")
 -	}
 -}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-doc-template.tmpl ./vancluever/v2.21.0/build-support/generate-dns-providers/templates/dns-provider-doc-template.tmpl
---- ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-doc-template.tmpl	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-doc-template.tmpl ./vancluever/v2.21.0/build-support/generate-dns-providers/templates/dns-provider-doc-template.tmpl
+--- ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-doc-template.tmpl	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/generate-dns-providers/templates/dns-provider-doc-template.tmpl	1970-01-01 07:30:00.000000000 +0730
 @@ -1,67 +0,0 @@
 ----
@@ -1237,8 +1237,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -{{end}}
 -{{- end}}
 -{{.Additional}}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-go-template.tmpl ./vancluever/v2.21.0/build-support/generate-dns-providers/templates/dns-provider-go-template.tmpl
---- ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-go-template.tmpl	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-go-template.tmpl ./vancluever/v2.21.0/build-support/generate-dns-providers/templates/dns-provider-go-template.tmpl
+--- ./vancluever/v1/build-support/generate-dns-providers/templates/dns-provider-go-template.tmpl	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/generate-dns-providers/templates/dns-provider-go-template.tmpl	1970-01-01 07:30:00.000000000 +0730
 @@ -1,35 +0,0 @@
 -// Auto-generated file. Do not edit.
@@ -1276,8 +1276,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -},
 -{{- end}}
 -}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/go-version-for-workflow/main.go ./vancluever/v2.21.0/build-support/go-version-for-workflow/main.go
---- ./vancluever/v1/build-support/go-version-for-workflow/main.go	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/go-version-for-workflow/main.go ./vancluever/v2.21.0/build-support/go-version-for-workflow/main.go
+--- ./vancluever/v1/build-support/go-version-for-workflow/main.go	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/go-version-for-workflow/main.go	1970-01-01 07:30:00.000000000 +0730
 @@ -1,16 +0,0 @@
 -package main
@@ -1296,8 +1296,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -
 -	fmt.Println(versionStr)
 -}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/pebblecfg/basic.json ./vancluever/v2.21.0/build-support/pebblecfg/basic.json
---- ./vancluever/v1/build-support/pebblecfg/basic.json	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/pebblecfg/basic.json ./vancluever/v2.21.0/build-support/pebblecfg/basic.json
+--- ./vancluever/v1/build-support/pebblecfg/basic.json	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/pebblecfg/basic.json	1970-01-01 07:30:00.000000000 +0730
 @@ -1,12 +0,0 @@
 -{
@@ -1312,8 +1312,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -    "externalAccountBindingRequired": false
 -  }
 -}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/pebblecfg/eab.json ./vancluever/v2.21.0/build-support/pebblecfg/eab.json
---- ./vancluever/v1/build-support/pebblecfg/eab.json	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/pebblecfg/eab.json ./vancluever/v2.21.0/build-support/pebblecfg/eab.json
+--- ./vancluever/v1/build-support/pebblecfg/eab.json	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/pebblecfg/eab.json	1970-01-01 07:30:00.000000000 +0730
 @@ -1,16 +0,0 @@
 -{
@@ -1332,8 +1332,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -    }
 -  }
 -}
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/provider-local-testing/dev.tfrc ./vancluever/v2.21.0/build-support/provider-local-testing/dev.tfrc
---- ./vancluever/v1/build-support/provider-local-testing/dev.tfrc	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/provider-local-testing/dev.tfrc ./vancluever/v2.21.0/build-support/provider-local-testing/dev.tfrc
+--- ./vancluever/v1/build-support/provider-local-testing/dev.tfrc	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/provider-local-testing/dev.tfrc	1970-01-01 07:30:00.000000000 +0730
 @@ -1,7 +0,0 @@
 -provider_installation {
@@ -1344,8 +1344,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -  direct {}
 -}
 \ No newline at end of file
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/provider-local-testing/README.md ./vancluever/v2.21.0/build-support/provider-local-testing/README.md
---- ./vancluever/v1/build-support/provider-local-testing/README.md	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/provider-local-testing/README.md ./vancluever/v2.21.0/build-support/provider-local-testing/README.md
+--- ./vancluever/v1/build-support/provider-local-testing/README.md	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/provider-local-testing/README.md	1970-01-01 07:30:00.000000000 +0730
 @@ -1,21 +0,0 @@
 -# Support Files for Local Testing
@@ -1370,8 +1370,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -You can run `make clean-pre-release` to delete the
 -`/tmp/terraform-provider-acme` directory, or just remove it on your own.
 \ No newline at end of file
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/scripts/memcached-start.sh ./vancluever/v2.21.0/build-support/scripts/memcached-start.sh
---- ./vancluever/v1/build-support/scripts/memcached-start.sh	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/scripts/memcached-start.sh ./vancluever/v2.21.0/build-support/scripts/memcached-start.sh
+--- ./vancluever/v1/build-support/scripts/memcached-start.sh	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/scripts/memcached-start.sh	1970-01-01 07:30:00.000000000 +0730
 @@ -1,15 +0,0 @@
 -#!/usr/bin/env bash
@@ -1389,8 +1389,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -    sudo apt-get update && sudo apt-get -y install memcached && sudo /etc/init.d/memcached start
 -    ;;
 -esac
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/scripts/memcached-stop.sh ./vancluever/v2.21.0/build-support/scripts/memcached-stop.sh
---- ./vancluever/v1/build-support/scripts/memcached-stop.sh	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/scripts/memcached-stop.sh ./vancluever/v2.21.0/build-support/scripts/memcached-stop.sh
+--- ./vancluever/v1/build-support/scripts/memcached-stop.sh	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/scripts/memcached-stop.sh	1970-01-01 07:30:00.000000000 +0730
 @@ -1,10 +0,0 @@
 -#!/usr/bin/env bash
@@ -1403,8 +1403,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -  *)
 -    echo "stopping unsupported on this system, please stop manually."
 -esac
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/scripts/pebble-challtest-dns.sh ./vancluever/v2.21.0/build-support/scripts/pebble-challtest-dns.sh
---- ./vancluever/v1/build-support/scripts/pebble-challtest-dns.sh	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/scripts/pebble-challtest-dns.sh ./vancluever/v2.21.0/build-support/scripts/pebble-challtest-dns.sh
+--- ./vancluever/v1/build-support/scripts/pebble-challtest-dns.sh	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/scripts/pebble-challtest-dns.sh	1970-01-01 07:30:00.000000000 +0730
 @@ -1,21 +0,0 @@
 -#!/usr/bin/env bash
@@ -1428,8 +1428,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -    echo "error: invalid command ${OP}">&2
 -    exit 1
 -esac
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/scripts/pebble-start.sh ./vancluever/v2.21.0/build-support/scripts/pebble-start.sh
---- ./vancluever/v1/build-support/scripts/pebble-start.sh	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/scripts/pebble-start.sh ./vancluever/v2.21.0/build-support/scripts/pebble-start.sh
+--- ./vancluever/v1/build-support/scripts/pebble-start.sh	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/scripts/pebble-start.sh	1970-01-01 07:30:00.000000000 +0730
 @@ -1,82 +0,0 @@
 -#!/usr/bin/env bash
@@ -1514,8 +1514,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -Root CA certificate:     ${GOPATH}/${PEBBLE_DIR}/${PEBBLE_CA_CERT}
 -
 -EOS
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/scripts/pebble-stop.sh ./vancluever/v2.21.0/build-support/scripts/pebble-stop.sh
---- ./vancluever/v1/build-support/scripts/pebble-stop.sh	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/scripts/pebble-stop.sh ./vancluever/v2.21.0/build-support/scripts/pebble-stop.sh
+--- ./vancluever/v1/build-support/scripts/pebble-stop.sh	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/scripts/pebble-stop.sh	1970-01-01 07:30:00.000000000 +0730
 @@ -1,76 +0,0 @@
 -#!/usr/bin/env bash
@@ -1594,8 +1594,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -if [ "${PEBBLE_ERROR}" == "true" ] || [ "${PEBBLE_EAB_ERROR}" == "true" ] || [ "${PEBBLE_CHALLTESTSRV_ERROR}" == "true" ]; then
 -  exit 1
 -fi
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/build-support/scripts/release.sh ./vancluever/v2.21.0/build-support/scripts/release.sh
---- ./vancluever/v1/build-support/scripts/release.sh	2024-04-26 15:52:22.076837287 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/build-support/scripts/release.sh ./vancluever/v2.21.0/build-support/scripts/release.sh
+--- ./vancluever/v1/build-support/scripts/release.sh	2024-04-26 17:01:25.182182784 +0800
 +++ ./vancluever/v2.21.0/build-support/scripts/release.sh	1970-01-01 07:30:00.000000000 +0730
 @@ -1,98 +0,0 @@
 -#!/usr/bin/env bash
@@ -1696,8 +1696,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -git push origin --tags
 -
 -message ok "\nRelease v${release} successful."
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/CHANGELOG.md ./vancluever/v2.21.0/CHANGELOG.md
---- ./vancluever/v1/CHANGELOG.md	2024-04-26 15:52:22.072837312 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/CHANGELOG.md ./vancluever/v2.21.0/CHANGELOG.md
+--- ./vancluever/v1/CHANGELOG.md	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/CHANGELOG.md	1970-01-01 07:30:00.000000000 +0730
 @@ -1,800 +0,0 @@
 -## 2.21.1-pre (Unreleased)
@@ -2500,8 +2500,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -## v0.1.0
 -
 -Initial release.
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/docs/index.md ./vancluever/v2.21.0/docs/index.md
---- ./vancluever/v1/docs/index.md	2024-04-26 15:52:22.080837262 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/docs/index.md ./vancluever/v2.21.0/docs/index.md
+--- ./vancluever/v1/docs/index.md	2024-04-26 17:01:25.186182963 +0800
 +++ ./vancluever/v2.21.0/docs/index.md	2024-04-26 10:49:54.810561638 +0800
 @@ -53,7 +53,7 @@
  terraform {
@@ -2512,8 +2512,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
        version = "~> 2.0"
      }
    }
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/docs/resources/certificate.md ./vancluever/v2.21.0/docs/resources/certificate.md
---- ./vancluever/v1/docs/resources/certificate.md	2024-04-26 15:52:22.080837262 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/docs/resources/certificate.md ./vancluever/v2.21.0/docs/resources/certificate.md
+--- ./vancluever/v1/docs/resources/certificate.md	2024-04-26 17:01:25.186182963 +0800
 +++ ./vancluever/v2.21.0/docs/resources/certificate.md	2024-04-26 10:49:54.814561765 +0800
 @@ -450,7 +450,7 @@
    to grant escalated network privileges to either Terraform (`setcap
@@ -2524,8 +2524,9 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
    Both have drawbacks: granting capabilites to Terraform itself will mean that
    Terraform core and any provider launched by it will also have the capability,
    while capabilities granted to the provider will be lost every time the
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/.github/dependabot.yml ./vancluever/v2.21.0/.github/dependabot.yml
---- ./vancluever/v1/.github/dependabot.yml	2024-04-26 15:52:22.072837312 +0800
+File ./vancluever/v1/.git is a regular file while file ./vancluever/v2.21.0/.git is a directory
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/.github/dependabot.yml ./vancluever/v2.21.0/.github/dependabot.yml
+--- ./vancluever/v1/.github/dependabot.yml	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/.github/dependabot.yml	1970-01-01 07:30:00.000000000 +0730
 @@ -1,11 +0,0 @@
 -version: 2
@@ -2539,8 +2540,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -    directory: "/"
 -    schedule:
 -      interval: "daily"
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/.github/ISSUE_TEMPLATE/config.yml ./vancluever/v2.21.0/.github/ISSUE_TEMPLATE/config.yml
---- ./vancluever/v1/.github/ISSUE_TEMPLATE/config.yml	2024-04-26 15:52:22.072837312 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/.github/ISSUE_TEMPLATE/config.yml ./vancluever/v2.21.0/.github/ISSUE_TEMPLATE/config.yml
+--- ./vancluever/v1/.github/ISSUE_TEMPLATE/config.yml	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/.github/ISSUE_TEMPLATE/config.yml	1970-01-01 07:30:00.000000000 +0730
 @@ -1,8 +0,0 @@
 -blank_issues_enabled: false
@@ -2551,8 +2552,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -  - name: Terraform Community Directory
 -    url: https://www.terraform.io/community
 -    about: Links for references on where to ask general Terraform questions or submit issues.
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/.github/ISSUE_TEMPLATE/provider-bugs-feature-requests-questions.md ./vancluever/v2.21.0/.github/ISSUE_TEMPLATE/provider-bugs-feature-requests-questions.md
---- ./vancluever/v1/.github/ISSUE_TEMPLATE/provider-bugs-feature-requests-questions.md	2024-04-26 15:52:22.072837312 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/.github/ISSUE_TEMPLATE/provider-bugs-feature-requests-questions.md ./vancluever/v2.21.0/.github/ISSUE_TEMPLATE/provider-bugs-feature-requests-questions.md
+--- ./vancluever/v1/.github/ISSUE_TEMPLATE/provider-bugs-feature-requests-questions.md	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/.github/ISSUE_TEMPLATE/provider-bugs-feature-requests-questions.md	1970-01-01 07:30:00.000000000 +0730
 @@ -1,31 +0,0 @@
 ----
@@ -2586,8 +2587,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -* General Terraform configuration issues: Please refer to the [Terraform community page](https://www.terraform.io/community) for links on where best to direct your request.
 -
 -Thanks!
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/.github/workflows/test.yml ./vancluever/v2.21.0/.github/workflows/test.yml
---- ./vancluever/v1/.github/workflows/test.yml	2024-04-26 15:52:22.072837312 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/.github/workflows/test.yml ./vancluever/v2.21.0/.github/workflows/test.yml
+--- ./vancluever/v1/.github/workflows/test.yml	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/.github/workflows/test.yml	1970-01-01 07:30:00.000000000 +0730
 @@ -1,63 +0,0 @@
 -name: test
@@ -2653,8 +2654,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -        run: go mod verify
 -      - name: Run Tests
 -        run: make tools pebble-start memcached-start test
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/.gitignore ./vancluever/v2.21.0/.gitignore
---- ./vancluever/v1/.gitignore	2024-04-26 15:52:22.072837312 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/.gitignore ./vancluever/v2.21.0/.gitignore
+--- ./vancluever/v1/.gitignore	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/.gitignore	2024-04-26 14:43:18.000534197 +0800
 @@ -23,6 +23,7 @@
  *.iml
@@ -2664,8 +2665,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  
  website/vendor
  
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/go.mod ./vancluever/v2.21.0/go.mod
---- ./vancluever/v1/go.mod	2024-04-26 15:52:22.080837262 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/go.mod ./vancluever/v2.21.0/go.mod
+--- ./vancluever/v1/go.mod	2024-04-26 17:01:25.186182963 +0800
 +++ ./vancluever/v2.21.0/go.mod	2024-04-26 15:00:45.350860655 +0800
 @@ -1,11 +1,10 @@
 -module github.com/vancluever/terraform-provider-acme/v2
@@ -2878,8 +2879,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -	gopkg.in/yaml.v2 v2.4.0 // indirect
 -	gopkg.in/yaml.v3 v3.0.1 // indirect
 -)
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/.goreleaser.yml ./vancluever/v2.21.0/.goreleaser.yml
---- ./vancluever/v1/.goreleaser.yml	2024-04-26 15:52:22.072837312 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/.goreleaser.yml ./vancluever/v2.21.0/.goreleaser.yml
+--- ./vancluever/v1/.goreleaser.yml	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/.goreleaser.yml	2024-04-26 15:47:41.643254842 +0800
 @@ -5,42 +5,43 @@
      # this is just an example and not a requirement for provider building/publishing
@@ -2965,8 +2966,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
    # If you want to manually examine the release before its live, uncomment this line:
    # draft: true
  changelog:
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/go.sum ./vancluever/v2.21.0/go.sum
---- ./vancluever/v1/go.sum	2024-04-26 15:52:22.084837238 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/go.sum ./vancluever/v2.21.0/go.sum
+--- ./vancluever/v1/go.sum	2024-04-26 17:01:25.190183143 +0800
 +++ ./vancluever/v2.21.0/go.sum	2024-04-26 14:40:31.112841949 +0800
 @@ -453,9 +453,8 @@
  github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515/go.mod h1:+0opPa2QZZtGFBFZlji/RkVcI2GknAs/DXo4wKdlNEc=
@@ -3045,8 +3046,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
  golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
  golang.org/x/text v0.3.2/go.mod h1:bEr9sfX3Q8Zfm5fL9x+3itogRgK3+ptLWKqgva+5dAk=
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/main.go ./vancluever/v2.21.0/main.go
---- ./vancluever/v1/main.go	2024-04-26 15:52:22.084837238 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/main.go ./vancluever/v2.21.0/main.go
+--- ./vancluever/v1/main.go	2024-04-26 17:01:25.190183143 +0800
 +++ ./vancluever/v2.21.0/main.go	2024-04-26 10:52:35.743391586 +0800
 @@ -3,9 +3,9 @@
  import (
@@ -3060,8 +3061,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  )
  
  func main() {
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/proto/dnsplugin/v1/dnsplugin.proto ./vancluever/v2.21.0/proto/dnsplugin/v1/dnsplugin.proto
---- ./vancluever/v1/proto/dnsplugin/v1/dnsplugin.proto	2024-04-26 15:52:22.084837238 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/proto/dnsplugin/v1/dnsplugin.proto ./vancluever/v2.21.0/proto/dnsplugin/v1/dnsplugin.proto
+--- ./vancluever/v1/proto/dnsplugin/v1/dnsplugin.proto	2024-04-26 17:01:25.190183143 +0800
 +++ ./vancluever/v2.21.0/proto/dnsplugin/v1/dnsplugin.proto	2024-04-26 10:45:24.540863543 +0800
 @@ -4,10 +4,10 @@
  
@@ -3076,8 +3077,8 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
  service DNSProviderService {
    // Configure needs to be called to initialize the provider and set the
    // configuration.
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/README.md ./vancluever/v2.21.0/README.md
---- ./vancluever/v1/README.md	2024-04-26 15:52:22.072837312 +0800
+diff -ruN '--exclude=acme/errorlist.go' ./vancluever/v1/README.md ./vancluever/v2.21.0/README.md
+--- ./vancluever/v1/README.md	2024-04-26 17:01:25.178182606 +0800
 +++ ./vancluever/v2.21.0/README.md	2024-04-26 11:50:13.275685902 +0800
 @@ -3,10 +3,9 @@
  
@@ -3112,15 +3113,3 @@ diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--ex
 -file, You can obtain one at http://mozilla.org/MPL/2.0/.
 - ```
 +Add retryable errors under `./acme/errorlist.go` such as API limiting and throttling.
-diff -ruN '--exclude=acme/errorlist.go' '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./vancluever/v1/terraform-registry-manifest.json ./vancluever/v2.21.0/terraform-registry-manifest.json
---- ./vancluever/v1/terraform-registry-manifest.json	1970-01-01 07:30:00.000000000 +0730
-+++ ./vancluever/v2.21.0/terraform-registry-manifest.json	2024-04-26 15:50:36.845576130 +0800
-@@ -0,0 +1,8 @@
-+{
-+	"version": 1,
-+	"metadata": {
-+		"protocol_versions": [
-+			"5.0"
-+		]
-+	}
-+}
