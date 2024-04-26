@@ -56,6 +56,12 @@ jobs:
           key: ${{ env.cache-name}}-${{ hashFiles(format('{0}/**/*', env.cache-dir)) }}
           restore-keys: |
             ${{ env.cache-name}}-
+      - name: run go mod init
+        run: |
+          rm go.mod
+          rm go.sum
+          go mod init
+          go mod tidy
       - run: go mod verify
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
