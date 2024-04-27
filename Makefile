@@ -1,42 +1,50 @@
-# The url of Terraform provider.
+OLD_SUBMODULE_VERSION ?= v2.21.0
+NEW_SUBMODULE_VERSION ?= v2.21.0
+TEMP_SUBMODULE_NAME ?= tempSubmodule
+#########################################################
+# 				New Patch File Creation                 #
+# If need to create the new patch file, follow the step #  
+#########################################################
 .PHONY: git-submodule-update
 update-submodule: 
 	git submodule update --init --recursive
 
+# patch with the pervious patch file 
 .PHONY: patch-file
 patching:
 	# git submodule update --init --recursive
-	-patch -p0 < ./patch/subModule.patch
+	-patch -p0 < ./patch/subModule-$(OLD_SUBMODULE_VERSION).patch
 	-patch -p0 ./submoduleACME/acme/errorlist.go < ./patch/acme.errorlist.go.patch
 
-# After Modify, Create a new submodule to make patch file
-TEMP_SUBMODULE_NAME ?= tempSubmodule
+# After Modifying, Create a new temp submodule to make patch file
 .PHONY: git-submodule-create
 create-submodule: 
 	git submodule add --force https://github.com/vancluever/terraform-provider-acme.git ./$(TEMP_SUBMODULE_NAME)
 
-# exchange the name with the temp submodule
-# Patch file can only apply to the origin dir name depend on creation of the patch file  
+# Exchange the name with the temp submodule
+# Patch file can only apply to the origin dir name, follow with the creation of the patch file  
 # command : diff originDir modifiedDir > patch file
 .PHONY: git-submodule-create
 exchange-name-submodule-old-new: 
-	mv  ./submoduleACME ./tempSubmodule
+	mv  ./submoduleACME ./temp
 	mv  ./$(TEMP_SUBMODULE_NAME) ./submoduleACME
-	mv  ./tempSubmodule ./$(TEMP_SUBMODULE_NAME)
+	mv  ./temp ./$(TEMP_SUBMODULE_NAME)
 
 .PHONY: create-patch
 create-patch:
-	mv ./patch/subModule.patch ./patch/subModuleOld.patch
-	diff -ruN --exclude=.git/ --exclude=.git  --exclude=.git. --exclude=errorlist.go ./submoduleACME/ ./$(TEMP_SUBMODULE_NAME)/ > ./patch/subModule.patch || exit 0
+	diff -ruN --exclude=.git/ --exclude=.git  --exclude=.git. --exclude=errorlist.go ./submoduleACME/ ./$(TEMP_SUBMODULE_NAME)/ > ./patch/subModule-$(NEW_SUBMODULE_VERSION).patch || exit 0
 
-# Remove the new created submodule
+# Remove the new created temp submodule
 .PHONY: rm-submoduleACME
 rm-submoduleACME:
 	git submodule deinit -f $(TEMP_SUBMODULE_NAME)
 	git rm -f $(TEMP_SUBMODULE_NAME)
-	# git commit -m "Removed submodule"
 	rm -rf .git/modules/$(TEMP_SUBMODULE_NAME)
 
+#########################################################
+# Use in github action to move the submodule to the main 
+# for running the gorelease
+#########################################################
 .PHONY: move-sub-module-to-main
 move-sub-to-main:
 	git submodule update --init --recursive
