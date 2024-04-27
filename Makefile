@@ -10,7 +10,7 @@ patching:
 	-patch -p0 ./submoduleACME/acme/errorlist.go < ./patch/acme.errorlist.go.patch
 
 # After Modify, Create a new submodule to make patch file
-TEMP_SUBMODULE_NAME ?= ccccccccccc
+TEMP_SUBMODULE_NAME ?= tempSubmodule
 .PHONY: git-submodule-create
 create-submodule: 
 	git submodule add --force https://github.com/vancluever/terraform-provider-acme.git ./$(TEMP_SUBMODULE_NAME)
