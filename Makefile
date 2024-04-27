@@ -40,6 +40,8 @@ rm-submoduleACME:
 	git submodule deinit -f $(TEMP_SUBMODULE_NAME)
 	git rm -f $(TEMP_SUBMODULE_NAME)
 	rm -rf .git/modules/$(TEMP_SUBMODULE_NAME)
+	rm -rf ./submoduleACME
+	git submodule update --init --recursive
 
 #########################################################
 # Use in github action to move the submodule to the main 

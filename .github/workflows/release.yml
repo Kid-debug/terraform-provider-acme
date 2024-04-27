@@ -56,12 +56,6 @@ jobs:
           key: ${{ env.cache-name}}-${{ hashFiles(format('{0}/**/*', env.cache-dir)) }}
           restore-keys: |
             ${{ env.cache-name}}-
-      - name: run go mod init
-        run: |
-          rm go.mod
-          rm go.sum
-          go mod init github.com/Kid-debug/terraform-provider-acme/v2
-          go mod tidy
       - run: go mod verify
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -73,7 +67,6 @@ jobs:
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
-      - run: ls
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v5.0.0
         with:
