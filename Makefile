@@ -50,4 +50,4 @@ rm-submoduleACME:
 .PHONY: move-sub-module-to-main
 move-sub-to-main:
 	git submodule update --init --recursive
-	rsync -av --progress ./submoduleACME/ . --exclude .git --exclude .gitignore --exclude *.md --exclude GNUmakefile --exclude .github/ 
+	rsync -av --progress ./submoduleACME/ . --exclude .git --exclude .gitignore --exclude GNUmakefile --exclude .github/ 
