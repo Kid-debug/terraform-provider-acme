@@ -54,4 +54,4 @@ rm-submoduleACME:
 .PHONY: move-sub-module-to-main
 move-sub-to-main:
 	# rsync -av --progress ./submoduleACME/ . --exclude .git --exclude .gitignore --exclude GNUmakefile --exclude .github/ 
-	cp ./submoduleACME/.gorelease.yml .
+	cp ./submoduleACME/.goreleaser.yml .
