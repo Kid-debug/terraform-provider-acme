@@ -17,8 +17,8 @@ patching:
 	-patch -p0 ./submoduleACME/acme/errorlist.go < ./patch/acme.errorlist.go.patch
 
 # After Modifying, Create a new temp submodule to make patch file
-.PHONY: mov-docs-to-main
-mv-docs-main: 
+.PHONY: copy-docs-main
+cp-docs-main: 
 	cp -r submoduleACME/docs .
 
 .PHONY: git-submodule-create
@@ -28,7 +28,7 @@ create-submodule:
 # Exchange the name with the temp submodule
 # Patch file can only apply to the origin dir name, follow with the creation of the patch file  
 # command : diff originDir modifiedDir > patch file
-.PHONY: git-submodule-create
+.PHONY: exchange-submodule-name
 exchange-name-submodule-old-new: 
 	mv  ./submoduleACME ./temp
 	mv  ./$(TEMP_SUBMODULE_NAME) ./submoduleACME
@@ -54,4 +54,4 @@ rm-submoduleACME:
 .PHONY: move-sub-module-to-main
 move-sub-to-main:
 	git submodule update --init --recursive
-	rsync -av --progress ./submoduleACME/ ./temp --exclude .git --exclude .gitignore --exclude GNUmakefile --exclude .github/ 
+	rsync -av --progress ./submoduleACME/ . --exclude .git --exclude .gitignore --exclude GNUmakefile --exclude .github/ 
