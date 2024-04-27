@@ -12,7 +12,7 @@ update-submodule:
 # patch with the pervious patch file 
 .PHONY: patch-file
 patching:
-	# git submodule update --init --recursive
+	git submodule update --init --recursive
 	-patch -p0 < ./patch/subModule-$(OLD_SUBMODULE_VERSION).patch
 	-patch -p0 ./submoduleACME/acme/errorlist.go < ./patch/acme.errorlist.go.patch
 
