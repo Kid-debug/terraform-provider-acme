@@ -25,6 +25,9 @@ permissions:
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./submoduleACME
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v4
@@ -33,9 +36,11 @@ jobs:
           check-latest: true
       - name: patching
         run: |
+          cd ../
           make patching
       - name: move submodule file to main
         run: |
+          cd ../
           make move-sub-to-main
       - name: Cache (Go Modules)
         uses: actions/cache@v3
