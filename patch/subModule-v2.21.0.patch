@@ -1,6 +1,6 @@
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/.gitignore ./tempSubmodule/.gitignore
---- ./submoduleACME/.gitignore	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/.gitignore	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/.gitignore ./testing/.gitignore
+--- ./submoduleACME/.gitignore	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/.gitignore	2024-04-28 22:24:33.621604867 +0800
 @@ -23,6 +23,7 @@
  *.iml
  *.test
@@ -9,9 +9,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  
  website/vendor
  
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/.goreleaser.yml ./tempSubmodule/.goreleaser.yml
---- ./submoduleACME/.goreleaser.yml	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/.goreleaser.yml	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/.goreleaser.yml ./testing/.goreleaser.yml
+--- ./submoduleACME/.goreleaser.yml	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/.goreleaser.yml	2024-04-28 22:24:33.621604867 +0800
 @@ -5,42 +5,43 @@
      # this is just an example and not a requirement for provider building/publishing
      - go mod tidy
@@ -96,9 +96,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
    # If you want to manually examine the release before its live, uncomment this line:
    # draft: true
  changelog:
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/README.md ./tempSubmodule/README.md
---- ./submoduleACME/README.md	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/README.md	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/README.md ./testing/README.md
+--- ./submoduleACME/README.md	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/README.md	2024-04-28 22:24:33.621604867 +0800
 @@ -3,10 +3,9 @@
  
  This is the repository for the Terraform ACME Provider, which one can use with
@@ -132,9 +132,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
 -file, You can obtain one at http://mozilla.org/MPL/2.0/.
 - ```
 +Add retryable errors under `./acme/errorlist.go` such as API limiting and throttling.
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/acme_structure.go ./tempSubmodule/acme/acme_structure.go
---- ./submoduleACME/acme/acme_structure.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/acme_structure.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/acme_structure.go ./testing/acme/acme_structure.go
+--- ./submoduleACME/acme/acme_structure.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/acme_structure.go	2024-04-28 22:24:33.621604867 +0800
 @@ -12,6 +12,7 @@
  	"fmt"
  	"time"
@@ -208,9 +208,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  	}
  
  	return
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/certificate_challenges.go ./tempSubmodule/acme/certificate_challenges.go
---- ./submoduleACME/acme/certificate_challenges.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/certificate_challenges.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/certificate_challenges.go ./testing/acme/certificate_challenges.go
+--- ./submoduleACME/acme/certificate_challenges.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/certificate_challenges.go	2024-04-28 22:24:33.621604867 +0800
 @@ -5,6 +5,8 @@
  	"strconv"
  	"time"
@@ -360,9 +360,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  			return dnsCloser, err
  		}
  	}
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/dnsplugin/client.go ./tempSubmodule/acme/dnsplugin/client.go
---- ./submoduleACME/acme/dnsplugin/client.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/dnsplugin/client.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/dnsplugin/client.go ./testing/acme/dnsplugin/client.go
+--- ./submoduleACME/acme/dnsplugin/client.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/dnsplugin/client.go	2024-04-28 22:24:33.621604867 +0800
 @@ -8,9 +8,9 @@
  	"os/exec"
  	"time"
@@ -374,9 +374,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  )
  
  // NewClient creates a new DNS provider instance by dispatching to itself via
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/dnsplugin/plugin.go ./tempSubmodule/acme/dnsplugin/plugin.go
---- ./submoduleACME/acme/dnsplugin/plugin.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/dnsplugin/plugin.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/dnsplugin/plugin.go ./testing/acme/dnsplugin/plugin.go
+--- ./submoduleACME/acme/dnsplugin/plugin.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/dnsplugin/plugin.go	2024-04-28 22:24:33.621604867 +0800
 @@ -8,10 +8,10 @@
  	"os"
  	"time"
@@ -389,9 +389,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  	"google.golang.org/grpc"
  	"google.golang.org/protobuf/types/known/durationpb"
  )
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/dnsplugin/plugin_test.go ./tempSubmodule/acme/dnsplugin/plugin_test.go
---- ./submoduleACME/acme/dnsplugin/plugin_test.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/dnsplugin/plugin_test.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/dnsplugin/plugin_test.go ./testing/acme/dnsplugin/plugin_test.go
+--- ./submoduleACME/acme/dnsplugin/plugin_test.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/dnsplugin/plugin_test.go	2024-04-28 22:24:33.621604867 +0800
 @@ -6,9 +6,9 @@
  	"testing"
  	"time"
@@ -403,9 +403,44 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  )
  
  var _ = challenge.ProviderTimeout((*DnsProviderClient)(nil))
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/provider_test.go ./tempSubmodule/acme/provider_test.go
---- ./submoduleACME/acme/provider_test.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/provider_test.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/errorlist.go ./testing/acme/errorlist.go
+--- ./submoduleACME/acme/errorlist.go	1970-01-01 07:30:00.000000000 +0730
++++ ./testing/acme/errorlist.go	2024-04-28 22:31:58.301439057 +0800
+@@ -0,0 +1,31 @@
++package acme
++
++import "strings"
++
++const (
++	ZEROSSL_ERR_NEW_ACCOUNT_TOO_MANY_REQUESTS   = "429 ::POST :: https://acme.zerossl.com/v2/DV90/newAccount"
++	ZEROSSL_ERR_NEW_NONCE_TOO_MANY_REQUESTS     = "429 ::HEAD :: https://acme.zerossl.com/v2/DV90/newNonce"
++	ZEROSSL_ERR_GET_DIRECTORY_TOO_MANY_REQUESTS = "429 ::GET :: https://acme.zerossl.com/v2/DV90"
++	ZEROSSL_ERR_AUTHZ_TOO_MANY_REQUESTS         = "429 ::POST :: https://acme.zerossl.com/v2/DV90/authz"
++	ZEROSSL_ERR_NEW_ORDER_TOO_MANY_REQUESTS     = "429 ::POST :: https://acme.zerossl.com/v2/DV90/newOrder"
++	ZEROSSL_ERR_ACCOUNT_TOO_MANY_REQUESTS       = "429 ::POST :: https://acme.zerossl.com/v2/DV90/account"
++	ZEROSSL_ERR_REVOKE_CERT_TOO_MANY_REQUESTS   = "429 ::POST :: https://acme.zerossl.com/v2/DV90/revokeCert"
++	ZEROSSL_ERR_CHALLENGE_TOO_MANY_REQUESTS     = "429 ::POST :: https://acme.zerossl.com/v2/DV90/chall"
++	LETSENCRYPT_ERR_RATE_LIMITED                = "429 :: POST :: https://acme-staging-v02.api.letsencrypt.org/acme/new-acct"
++	ERR_TIME_LIMIT_EXCEEDED                     = "time limit exceeded"
++	ERR_SERVER_NO_RESPONSE                      = "net/http: timeout awaiting response headers"
++)
++
++func isAbleToRetry(errCode string) bool {
++	return strings.Contains(errCode, ZEROSSL_ERR_NEW_ACCOUNT_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, ZEROSSL_ERR_NEW_NONCE_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, ZEROSSL_ERR_GET_DIRECTORY_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, ZEROSSL_ERR_AUTHZ_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, ZEROSSL_ERR_NEW_ORDER_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, ZEROSSL_ERR_ACCOUNT_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, ZEROSSL_ERR_REVOKE_CERT_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, ZEROSSL_ERR_CHALLENGE_TOO_MANY_REQUESTS) ||
++		strings.Contains(errCode, LETSENCRYPT_ERR_RATE_LIMITED) ||
++		strings.Contains(errCode, ERR_TIME_LIMIT_EXCEEDED) ||
++		strings.Contains(errCode, ERR_SERVER_NO_RESPONSE)
++}
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/provider_test.go ./testing/acme/provider_test.go
+--- ./submoduleACME/acme/provider_test.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/provider_test.go	2024-04-28 22:24:33.621604867 +0800
 @@ -12,9 +12,9 @@
  	"path/filepath"
  	"testing"
@@ -417,9 +452,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  )
  
  func testAccProviderAcme() *schema.Provider {
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/resource_acme_certificate.go ./tempSubmodule/acme/resource_acme_certificate.go
---- ./submoduleACME/acme/resource_acme_certificate.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/resource_acme_certificate.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/resource_acme_certificate.go ./testing/acme/resource_acme_certificate.go
+--- ./submoduleACME/acme/resource_acme_certificate.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/resource_acme_certificate.go	2024-04-28 22:24:33.621604867 +0800
 @@ -7,6 +7,7 @@
  	"log"
  	"time"
@@ -608,9 +643,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  	return nil
  }
  
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/acme/resource_acme_registration.go ./tempSubmodule/acme/resource_acme_registration.go
---- ./submoduleACME/acme/resource_acme_registration.go	2024-04-27 18:56:47.693178444 +0800
-+++ ./tempSubmodule/acme/resource_acme_registration.go	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/acme/resource_acme_registration.go ./testing/acme/resource_acme_registration.go
+--- ./submoduleACME/acme/resource_acme_registration.go	2024-04-28 22:23:13.461652602 +0800
++++ ./testing/acme/resource_acme_registration.go	2024-04-28 22:24:33.621604867 +0800
 @@ -1,6 +1,7 @@
  package acme
  
@@ -709,9 +744,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  }
  
  func regGone(err error) bool {
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/docs/index.md ./tempSubmodule/docs/index.md
---- ./submoduleACME/docs/index.md	2024-04-27 18:56:47.703178444 +0800
-+++ ./tempSubmodule/docs/index.md	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/docs/index.md ./testing/docs/index.md
+--- ./submoduleACME/docs/index.md	2024-04-28 22:23:13.471652599 +0800
++++ ./testing/docs/index.md	2024-04-28 22:24:33.621604867 +0800
 @@ -53,7 +53,7 @@
  terraform {
    required_providers {
@@ -721,9 +756,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
        version = "~> 2.0"
      }
    }
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/docs/resources/certificate.md ./tempSubmodule/docs/resources/certificate.md
---- ./submoduleACME/docs/resources/certificate.md	2024-04-27 18:56:47.703178444 +0800
-+++ ./tempSubmodule/docs/resources/certificate.md	2024-04-27 18:56:31.673178632 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/docs/resources/certificate.md ./testing/docs/resources/certificate.md
+--- ./submoduleACME/docs/resources/certificate.md	2024-04-28 22:23:13.471652599 +0800
++++ ./testing/docs/resources/certificate.md	2024-04-28 22:24:33.621604867 +0800
 @@ -450,7 +450,7 @@
    to grant escalated network privileges to either Terraform (`setcap
    'cap_net_bind_service=+eip' "$(which terraform)"`), or the provider (`setcap
@@ -733,9 +768,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
    Both have drawbacks: granting capabilites to Terraform itself will mean that
    Terraform core and any provider launched by it will also have the capability,
    while capabilities granted to the provider will be lost every time the
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/go.mod ./tempSubmodule/go.mod
---- ./submoduleACME/go.mod	2024-04-27 18:56:47.703178444 +0800
-+++ ./tempSubmodule/go.mod	2024-04-27 18:56:36.213178586 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/go.mod ./testing/go.mod
+--- ./submoduleACME/go.mod	2024-04-28 22:23:13.471652599 +0800
++++ ./testing/go.mod	2024-04-28 22:24:33.621604867 +0800
 @@ -1,11 +1,10 @@
 -module github.com/vancluever/terraform-provider-acme/v2
 +module github.com/Kid-debug/terraform-provider-acme/v2
@@ -802,9 +837,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  	golang.org/x/text v0.14.0 // indirect
  	golang.org/x/time v0.5.0 // indirect
  	golang.org/x/tools v0.17.0 // indirect
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/go.sum ./tempSubmodule/go.sum
---- ./submoduleACME/go.sum	2024-04-27 18:56:47.703178444 +0800
-+++ ./tempSubmodule/go.sum	2024-04-27 18:56:36.213178586 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/go.sum ./testing/go.sum
+--- ./submoduleACME/go.sum	2024-04-28 22:23:13.471652599 +0800
++++ ./testing/go.sum	2024-04-28 22:24:33.621604867 +0800
 @@ -133,9 +133,8 @@
  github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
  github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
@@ -904,9 +939,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
  golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
  golang.org/x/text v0.3.2/go.mod h1:bEr9sfX3Q8Zfm5fL9x+3itogRgK3+ptLWKqgva+5dAk=
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/main.go ./tempSubmodule/main.go
---- ./submoduleACME/main.go	2024-04-27 18:56:47.703178444 +0800
-+++ ./tempSubmodule/main.go	2024-04-27 18:56:31.683178633 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/main.go ./testing/main.go
+--- ./submoduleACME/main.go	2024-04-28 22:23:13.471652599 +0800
++++ ./testing/main.go	2024-04-28 22:24:33.621604867 +0800
 @@ -3,9 +3,9 @@
  import (
  	"os"
@@ -919,9 +954,9 @@ diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorl
  )
  
  func main() {
-diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' '--exclude=errorlist.go' ./submoduleACME/proto/dnsplugin/v1/dnsplugin.proto ./tempSubmodule/proto/dnsplugin/v1/dnsplugin.proto
---- ./submoduleACME/proto/dnsplugin/v1/dnsplugin.proto	2024-04-27 18:56:47.703178444 +0800
-+++ ./tempSubmodule/proto/dnsplugin/v1/dnsplugin.proto	2024-04-27 18:56:31.683178633 +0800
+diff -ruN '--exclude=.git/' '--exclude=.git' '--exclude=.git.' ./submoduleACME/proto/dnsplugin/v1/dnsplugin.proto ./testing/proto/dnsplugin/v1/dnsplugin.proto
+--- ./submoduleACME/proto/dnsplugin/v1/dnsplugin.proto	2024-04-28 22:23:13.471652599 +0800
++++ ./testing/proto/dnsplugin/v1/dnsplugin.proto	2024-04-28 22:24:33.621604867 +0800
 @@ -4,10 +4,10 @@
  
  import "google/protobuf/duration.proto";

@@ -1,51 +1,37 @@
-OLD_SUBMODULE_VERSION ?= v2.21.0
-NEW_SUBMODULE_VERSION ?= v2.21.0
-TEMP_SUBMODULE_NAME ?= tempSubmodule
-#########################################################
-# 				New Patch File Creation                 #
-# If need to create the new patch file, follow the step #  
-#########################################################
+SUBMODULE_VERSION ?= v2.21.0
+PATCH_APPLY_VERSION ?= v2.21.0
+PATCH_APPLY_DIRECTORY ?= submoduleACME/
+ORI_SUBMODULE_NAME ?= tempSubmodule
+RM_SUBMODULE_NAME ?= tempSubmodule
+
 .PHONY: git-submodule-update
 update-submodule: 
 	git submodule update --init --recursive
 
-# patch with the pervious patch file 
 .PHONY: patch-file
 patching:
-	git submodule update --init --recursive
-	-patch -p0 < ./patch/subModule-$(OLD_SUBMODULE_VERSION).patch
-	-patch -p0 ./submoduleACME/acme/errorlist.go < ./patch/acme.errorlist.go.patch
+	-patch --directory=$(PATCH_APPLY_DIRECTORY) -p2 < ./patch/subModule-$(PATCH_APPLY_VERSION).patch
 
-# After Modifying, Create a new temp submodule to make patch file
+# copy the new docs to the main to have docs on terraform registry.
 .PHONY: copy-docs-main
 cp-docs-main: 
 	cp -r submoduleACME/docs .
 
-.PHONY: git-submodule-create
-create-submodule: 
-	git submodule add --force https://github.com/vancluever/terraform-provider-acme.git ./$(TEMP_SUBMODULE_NAME)
-
-# Exchange the name with the temp submodule
-# Patch file can only apply to the origin dir name, follow with the creation of the patch file  
-# command : diff originDir modifiedDir > patch file
-.PHONY: exchange-submodule-name
-exchange-name-submodule-old-new: 
-	mv  ./submoduleACME ./temp
-	mv  ./$(TEMP_SUBMODULE_NAME) ./submoduleACME
-	mv  ./temp ./$(TEMP_SUBMODULE_NAME)
+.PHONY: copy-readme-main
+cp-readme-main: 
+	cp -r submoduleACME/README.md .
 
 .PHONY: create-patch
 create-patch:
-	diff -ruN --exclude=.git/ --exclude=.git  --exclude=.git. --exclude=errorlist.go ./submoduleACME/ ./$(TEMP_SUBMODULE_NAME)/ > ./patch/subModule-$(NEW_SUBMODULE_VERSION).patch || exit 0
+	diff -ruN --exclude=.git/ --exclude=.git  --exclude=.git. ./$(ORI_SUBMODULE_NAME) ./submoduleACME > ./patch/subModule-$(SUBMODULE_VERSION).patch || exit 0
 
-# Remove the new created temp submodule
+# Remove submodule
 .PHONY: rm-submoduleACME
 rm-submoduleACME:
-	git submodule deinit -f $(TEMP_SUBMODULE_NAME)
-	git rm -f $(TEMP_SUBMODULE_NAME)
-	rm -rf .git/modules/$(TEMP_SUBMODULE_NAME)
+	git submodule deinit -f $(RM_SUBMODULE_NAME)
+	git rm -f $(RM_SUBMODULE_NAME)
+	rm -rf .git/modules/$(RM_SUBMODULE_NAME)
 	rm -rf ./submoduleACME
-	git submodule update --init --recursive
 
 #########################################################
 # Use in github action to move the submodule to the main 
@@ -53,5 +39,4 @@ rm-submoduleACME:
 #########################################################
 .PHONY: move-sub-module-to-main
 move-sub-to-main:
-	git submodule update --init --recursive
 	rsync -av --progress ./submoduleACME/ . --exclude .git --exclude .gitignore --exclude GNUmakefile --exclude .github/ 
