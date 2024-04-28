@@ -12,6 +12,10 @@ update-submodule:
 patching:
 	-patch --directory=$(PATCH_APPLY_DIRECTORY) -p2 < ./patch/subModule-$(PATCH_APPLY_VERSION).patch
 
+.PHONY: create-patch
+create-patch:
+	diff -ruN --exclude=.git/ --exclude=.git  --exclude=.git. ./$(ORI_SUBMODULE_NAME) ./submoduleACME > ./patch/subModule-$(SUBMODULE_VERSION).patch || exit 0
+
 # copy the new docs to the main to have docs on terraform registry.
 .PHONY: copy-docs-main
 cp-docs-main: 
@@ -20,10 +24,6 @@ cp-docs-main:
 .PHONY: copy-readme-main
 cp-readme-main: 
 	cp -r submoduleACME/README.md .
-
-.PHONY: create-patch
-create-patch:
-	diff -ruN --exclude=.git/ --exclude=.git  --exclude=.git. ./$(ORI_SUBMODULE_NAME) ./submoduleACME > ./patch/subModule-$(SUBMODULE_VERSION).patch || exit 0
 
 # Remove submodule
 .PHONY: rm-submoduleACME
