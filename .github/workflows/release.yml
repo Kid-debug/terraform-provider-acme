@@ -31,12 +31,12 @@ jobs:
         with:
           go-version: "^1.21.0"
           check-latest: true
+      - name: updating submodule 
+        run: make update-submodule
       - name: patching
-        run: |
-          make patching
+        run: make patching
       - name: move submodule file to main
-        run: |
-          make move-sub-to-main
+        run: make move-sub-to-main  
       - name: Cache (Go Modules)
         uses: actions/cache@v3
         env:

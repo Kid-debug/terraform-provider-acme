@@ -1,7 +1,7 @@
 SUBMODULE_VERSION ?= v2.21.0
 PATCH_APPLY_VERSION ?= v2.21.0
 PATCH_APPLY_DIRECTORY ?= submoduleACME/
-ORI_SUBMODULE_NAME ?= tempSubmodule
+ORI_SUBMODULE_NAME ?= submoduleACME/
 RM_SUBMODULE_NAME ?= tempSubmodule
 
 .PHONY: git-submodule-update
@@ -39,4 +39,4 @@ rm-submoduleACME:
 #########################################################
 .PHONY: move-sub-module-to-main
 move-sub-to-main:
-	rsync -av --progress ./submoduleACME/ . --exclude .git --exclude .gitignore --exclude GNUmakefile --exclude .github/ 
+	rsync -av --progress ./submoduleACME . --exclude .git --exclude .gitignore --exclude GNUmakefile --exclude .github/ 
