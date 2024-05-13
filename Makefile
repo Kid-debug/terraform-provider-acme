@@ -2,7 +2,7 @@ SUBMODULE_VERSION ?= v2.21.0
 PATCH_APPLY_VERSION ?= v2.21.0
 PATCH_APPLY_DIRECTORY ?= submodule/acme
 ORI_SUBMODULE_NAME ?= submodule/acme
-RM_SUBMODULE_NAME ?= submodule/acme
+RM_SUBMODULE_NAME ?= submoduleACME
 
 .PHONY: git-submodule-update
 update-submodule:
